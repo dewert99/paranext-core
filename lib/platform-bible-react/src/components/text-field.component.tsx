@@ -1,4 +1,6 @@
 import { TextField as MuiTextField } from '@mui/material';
+import { Input as ShadInput} from '@/components/shadcn-ui/input'
+import { Label as ShadLabel} from '@/components/shadcn-ui/label'
 import { ChangeEventHandler, FocusEventHandler } from 'react';
 
 export type TextFieldProps = {
@@ -60,7 +62,7 @@ export type TextFieldProps = {
  * Thanks to MUI for heavy inspiration and documentation
  * https://mui.com/material-ui/getting-started/overview/
  */
-function TextField({
+function TextFieldM({
   variant = 'outlined',
   id,
   isDisabled = false,
@@ -95,6 +97,47 @@ function TextField({
       onFocus={onFocus}
       onBlur={onBlur}
     />
+  );
+}
+
+function TextField({
+  variant = 'outlined',
+  id,
+  isDisabled = false,
+  hasError = false,
+  isFullWidth = false,
+  helperText,
+  label,
+  placeholder,
+  isRequired = false,
+  className,
+  defaultValue,
+  value,
+  onChange,
+  onFocus,
+  onBlur,
+}: TextFieldProps) {
+  return (
+    <div className="grid w-full max-w-sm items-center gap-1.5">
+      <ShadLabel htmlFor={id} className={hasError ? 'pr-text-red-600' : ''}>{`${label}${isRequired ? '*' : ''}`}</ShadLabel>
+      <ShadInput
+        variant={variant}
+        id={id}
+        disabled={isDisabled}
+        // fullWidth={isFullWidth}
+        placeholder={placeholder}
+        required={isRequired}
+        className={`papi-textfield ${className ?? ''} ${hasError ? 'pr-border-red-600' : ''}`}
+        defaultValue={defaultValue}
+        value={value}
+        onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
+      <p>
+          {helperText}
+      </p>
+    </div>
   );
 }
 
