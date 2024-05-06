@@ -125,12 +125,12 @@ function RefSelector({ scrRef, handleSubmit, id }: ScrRefSelectorProps) {
       </Button>
       <Button onClick={() => handleSubmit(offsetVerse(scrRef, 1))}>&gt;</Button>
       <TextField
-        variant='filled'
+        variant="filled"
         className=""
-        label="papi-ref-selector chapter-verse"
+        label="test"
         isFullWidth={true}
-        helperText='helper text'
-        placeholder='placeholder'
+        helperText="helper text"
+        placeholder="placeholder"
         isRequired={true}
         onChange={onChangeVerse}
       />
@@ -138,16 +138,16 @@ function RefSelector({ scrRef, handleSubmit, id }: ScrRefSelectorProps) {
         label="test error"
         className=""
         hasError={true}
-        helperText='helper text'
-        placeholder='placeholder'
+        helperText="helper text"
+        placeholder="placeholder"
         onChange={onChangeVerse}
       />
       <TextField
         label="test disabled"
         className=""
         isDisabled={true}
-        helperText='helper text'
-        placeholder='placeholder'
+        helperText="helper text"
+        placeholder="placeholder"
         onChange={onChangeVerse}
       />
     </span>
