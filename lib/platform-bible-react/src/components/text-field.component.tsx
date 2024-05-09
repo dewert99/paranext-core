@@ -33,9 +33,9 @@ export type TextFieldProps = {
   /** Additional css classes to help with unique styling of the text field */
   className?: string;
   /** Starting value for the text field if it is not controlled */
-  defaultValue?: unknown;
+  defaultValue?: string | number;
   /** Value of the text field if controlled */
-  value?: unknown;
+  value?: string | number;
   /** Triggers when content of textfield is changed */
   onChange?: ChangeEventHandler<HTMLInputElement>;
   /** Triggers when textfield gets focus */
@@ -102,7 +102,7 @@ function TextField({
   onBlur,
 }: TextFieldProps) {
   return (
-    <div className="pr-grid pr-w-full pr-max-w-sm pr-items-center pr-gap-1.5">
+    <div className="pr-inline-grid pr-items-center pr-gap-1.5">
       <ShadLabel
         htmlFor={id}
         className={hasError ? 'pr-text-red-600' : ''}
@@ -120,7 +120,7 @@ function TextField({
         onFocus={onFocus}
         onBlur={onBlur}
       />
-      <p>{helperText}</p>
+      <p className={placeholder ? '' : 'pr-hidden'}>{helperText}</p>
     </div>
   );
 }

@@ -71,7 +71,7 @@ function RefSelector({ scrRef, handleSubmit, id }: ScrRefSelectorProps) {
   const currentBookName = useMemo(() => getBookNameOptions()[scrRef.bookNum - 1], [scrRef.bookNum]);
 
   return (
-    <span id={id}>
+    <span id={id} className="pr-flex pr-place-items-center">
       <ComboBox
         title="Book"
         className="papi-ref-selector book"
@@ -125,27 +125,25 @@ function RefSelector({ scrRef, handleSubmit, id }: ScrRefSelectorProps) {
       </Button>
       <Button onClick={() => handleSubmit(offsetVerse(scrRef, 1))}>&gt;</Button>
       <TextField
-        variant="filled"
-        className=""
+        className="papi-ref-selector chapter-verse"
         label="test"
-        isFullWidth={true}
         helperText="helper text"
         placeholder="placeholder"
-        isRequired={true}
+        isRequired
         onChange={onChangeVerse}
       />
       <TextField
         label="test error"
-        className=""
-        hasError={true}
+        className="papi-ref-selector chapter-verse"
+        hasError
         helperText="helper text"
         placeholder="placeholder"
         onChange={onChangeVerse}
       />
       <TextField
         label="test disabled"
-        className=""
-        isDisabled={true}
+        className="papi-ref-selector chapter-verse"
+        isDisabled
         helperText="helper text"
         placeholder="placeholder"
         onChange={onChangeVerse}
